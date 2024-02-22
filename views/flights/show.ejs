@@ -1,14 +1,14 @@
 <%- include('../partials/header') %>
 
 <section id="flight-details">
-  <div>Airline: </div>
-  <div><%= flight.airline %></div>
-  <div>Airport: </div>
-  <div><%= flight.airport %></div>
-  <div>Flight Number: </div>
-  <div><%= flight.flightNo %></div>
-  <div>Departure Time: </div>
-  <div><%= flight.departs %></div>
+  <div class="property-label">Airline: </div>
+  <div class="property"><%= flight.airline %></div>
+  <div class="property-label">Airport: </div>
+  <div class="property"><%= flight.airport %></div>
+  <div class="property-label">Flight Number: </div>
+  <div class="property"><%= flight.flightNo %></div>
+  <div class="property-label">Departure Time: </div>
+  <div class="property"><%= flight.departs %></div>
 </section>
 
 <%- include('../partials/footer') %>
