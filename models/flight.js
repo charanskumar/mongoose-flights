@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const flightSchema = new mongoose.schema( {
+const flightSchema = new Schema( {
     airline: {
         type: String,
         enum: ['American', 'Southwest', 'United', 'Delta', 'Spirit']
@@ -18,9 +18,13 @@ const flightSchema = new mongoose.schema( {
     },
     departs: {
         type: Date,
-        default: function () {
-            return new Date.now() + 365*24*60*60000;
+        //default: function () {
+            //return new Date.now() + 365*24*60*60000;
             //console.log(Date.now() + 365*24*60*60000);
-        }
+        //}
     }
-})
+}, {
+    timestamps: true
+});
+
+module.exports = mongoose.model('Flight', flightSchema);
