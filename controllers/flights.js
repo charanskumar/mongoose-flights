@@ -16,6 +16,10 @@ function newFlight(req, res) {
 }
 
 async function create(req, res) {
+    if (req.body.departs) req.body.departs = req.body.departs.split(/\s*,\s*/);
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    }
     try {
         await Flight.create(req.body);
         res.redirect('/flights/new');
