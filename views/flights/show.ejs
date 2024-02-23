@@ -12,19 +12,45 @@
 </section>
 
 <br><br><h2>Destinations</h2>
+<% if (flight.destinations.length) { %>
+    <table id="destinations-table">
+        <thead>
+          <tr>
+            <th>Airport</th>
+            <th>Arrival Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% flight.destinations.forEach(function(d) { %>
+            <tr>
+              <!-- .toLocaleDateString() provides a more friendly date format -->
+              <td><%= d.airport %></td>
+              <td><%= d.arrival %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+<% } else { %>
+    <h4>No Destinations Selected</h4>
+<% } %>
 <form id="add-destination" method="POST"
   action="/flights/<%= flight._id %>/destinations">
   <label>Airport:</label>
   <select name="airport">
-    <option value="American">American</option>
-    <option value="Southwest">Southwest</option>
-    <option value="United">United</option>
-    <option value="Delta">Delta</option>
-    <option value="Spirit">Spirit</option>
+    <option value="AUS">Austin, TX (AUS)</option>
+    <option value="DFW">Dallas, TX (DFW)</option>
+    <option value="DEN">Denver, CO (DEN)</option>
+    <option value="LAX">Los Angeles, CA (LAX)</option>
+    <option value="SAN">San Diego, CA (SAN)</option>
+    <option value="ATL">Atlanta, GA (ATL)</option>
+    <option value="MIA">Miami, FL (MIA)</option>
+    <option value="JFK">New York, NY (JFK)</option>
   </select>
   <label>Arrival Time:
     <input type="datetime-local" name="arrival">
   </label>
   <input type="submit" value="Add Destination">
 </form>
+
+
 <%- include('../partials/footer') %>
