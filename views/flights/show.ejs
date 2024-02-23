@@ -11,4 +11,20 @@
   <div class="property"><%= flight.departs %></div>
 </section>
 
+<br><br><h2>Destinations</h2>
+<form id="add-destination" method="POST"
+  action="/flights/<%= flight._id %>/destinations">
+  <label>Airport:</label>
+  <select name="airport">
+    <option value="American">American</option>
+    <option value="Southwest">Southwest</option>
+    <option value="United">United</option>
+    <option value="Delta">Delta</option>
+    <option value="Spirit">Spirit</option>
+  </select>
+  <label>Arrival Time:
+    <input type="datetime-local" name="arrival">
+  </label>
+  <input type="submit" value="Add Destination">
+</form>
 <%- include('../partials/footer') %>
