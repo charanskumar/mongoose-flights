@@ -23,11 +23,14 @@ const flightSchema = new mongoose.Schema( {
         type: Number,
         min: 10,
         max: 9999,
+        required: true
     },
     departs: {
         type: Date,
         default: function() {
-            return new Date().setFullYear(new Date().getFullYear + 1);
+            const dtDate = new Date();
+            dtDate.setFullYear(dtDate.getFullYear() + 1);
+            return dtDate.toLocaleString();
         },
     },
     destinations: [destinationSchema],
