@@ -17,7 +17,7 @@ const flightSchema = new mongoose.Schema( {
     airport: {
         type: String,
         enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN', 'ATL', 'MIA', 'JFK'],
-        default: 'ATL',
+        default: 'AUS',
     },
     flightNo: {
         type: Number,
@@ -30,7 +30,7 @@ const flightSchema = new mongoose.Schema( {
         default: function() {
             const dtDate = new Date();
             dtDate.setFullYear(dtDate.getFullYear() + 1);
-            return dtDate.toLocaleString();
+            return dtDate;
         },
     },
     destinations: [destinationSchema],
